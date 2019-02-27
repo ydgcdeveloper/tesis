@@ -1,0 +1,53 @@
+{% include 'AppBundle::main.html.twig' %}
+
+
+{% block content %}
+<div class="container">
+    <h4>Estudiantes nacionales</h4>
+    <hr/>
+    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+        <Button><a href={{ path('nuevo_estudiante_nacional') }}> <span class="mif-user-plus mif-2x" style="color: #0b4059"></span></a></Button>
+        <Button><span class="mif-bin mif-2x" style="color: red"> </span></Button>
+
+        <div id="DataTables_Table_0_filter" class="dataTables_filter">
+            <label>
+                <span class="mif-search mif-2x" style="color: #0b4059"></span>
+
+                <input type="search" class="" placeholder="" aria-controls="DataTables_Table_0">
+            </label>
+        </div>
+    </div>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th style="width: 12.5%">
+                <label class="input-control checkbox">
+                    <input type="checkbox" checked>
+                    <span class="check"></span>
+                    <span class="caption">Todos</span>
+                </label>
+            </th>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th style="width: 5%">Ver</th>
+            <th style="width: 7%">Editar</th>
+            <th style="width: 7%">Eliminar</th>
+        </tr>
+        {% for nac in nacs %}
+            <tr>
+                <td class="sorting_1" style="width: 12.5%">
+                    <label class="input-control checkbox small-check no-margin"><input type="checkbox">
+                        <span class="check"></span>
+                    </label>
+                </td>
+                <td>{{ nac.id }}</td>
+                <td>{{ nac.nombre }}</td>
+                <td>{{ nac.apell }}</td>
+                <td style="width: 5%"><a href={{ path('detalles_de', {"id":nac.id})}}><span class="mif-eye mif-2x" style="color: #0b4059"> </span></a></td>
+                <td style="width: 7%"><a href={{ path('nuevo_estudiante_nacional', {"id":nac.id})}}><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+                <td style="width: 7%"><a href={{ path('eliminar_nacional', {"id":nac.id})}}><span class="mif-bin mif-2x" style="color: red"> </span></a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

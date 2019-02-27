@@ -1,0 +1,98 @@
+ {% block actionTabla %}
+    <script>
+        // PARA EL FILTRO
+        $(document).ready(function() {
+            $('#miTablaExt').DataTable( { "paging": false, "ordering": false, "info": false, "searching" : true, "language": { "search": "Buscar:" } } );
+
+        // PARA SELECCIONAR TODOS
+            var principal = $('#checkbox_principal');
+            var todos = $('input.checkbox');
+            var todos_checkeados = $('input.checkbox:checked');
+            var estado = false;
+        $(principal).click(function(){
+                if(estado == false){
+                    estado = true;
+                   // alert(estado);
+                    $(todos).prop('checked', true);
+                }
+                 else{
+                    estado = false;
+                  //  alert(estado);
+                    $(todos).prop('checked', false);
+                }
+        });//**************************************
+
+            //  PARA MOSTRAR BOTON DE ELIMINACION MULTIPLE
+            //  SE MUESTRA EL BOTON SOLO CUANDO SE CHECKEA EL PRINCIPAL
+
+            // *********** OJO --> ESTE CODIGO ES ALTAMENTE SENSIBLE. NO CAMBIAR NI BORRAR NADA.**************
+            var  seleccion = $("#btns-top");
+            function addBtnDelete(){
+                   // OBTENGO EL ACCESO AL DIV QUE CONTIENE LOS BOTONES
+
+               // if(seleccion.html().length <= 195){// SI EL ELEMENTO DIV SOLO TIENE EL CODIGO DE UN BOTON
+                   // seleccion.html("<Button><a href={{ path('nuevo_extranjero') }}> <span class='mif-user-plus mif-2x' style='color: #0b4059'></span></a></Button> <Button><span class='mif-bin mif-2x' style='color: red'> </span></Button>");// LE PASAMOS ESE STRING QUE ES EL CODIGO DE LOS DOS BOTONES
+                    $('#delete-all').enable();
+               // }else{// SI EL ELEMENTO TIENE OTRO SIZE PUES DEJAMENLO VACIO, ASI QUITA EL BOTON DE ELIMINAR.
+                   // seleccion.html("<Button><a href={{ path('nuevo_extranjero') }}> <span class='mif-user-plus mif-2x' style='color: #0b4059'></span></a></Button>");
+
+               // }
+            }
+            $(principal).click(function(evt){// CAPTURO EL EVENTO CLICK DEL INPUT
+                addBtnDelete();
+            });
+
+
+            var ids;
+
+            $(todos).click(function(evt){// CAPTURO EL EVENTO CLICK DEL INPUT
+
+                ids = [];// lista de ids de elementos seleccionados
+                var checkeados = $('input.checkbox:checked');
+                var count_checked = checkeados.length;
+                //alert(count_checked);
+                if(count_checked > 1){
+                  //  seleccion.html("<Button><a href={{ path('nuevo_extranjero') }}> <span class='mif-user-plus mif-2x' style='color: #0b4059'></span></a></Button>");// LE PASAMOS ESE STRING QUE ES EL CODIGO DE LOS DOS BOTONES
+                }else{
+                   // seleccion.html("<Button><a href={{ path('nuevo_extranjero') }}> <span class='mif-user-plus mif-2x' style='color: #0b4059'></span></a></Button>");
+                }
+
+
+                //  PARA LA ELIMINACION DE MAS DE UN ELEMENTO
+                // compruebo si esta seleccionado, si lo esta, elimino su id de la lista, si no, lo agrego
+                //alert(count_checked);
+               for(var i = 0; i < count_checked; i++){
+                   ids.push($(checkeados[i]).attr('value'));
+               }
+
+            });
+
+
+            // ***************************************************
+
+                $('#delete-all').click(function(evt){
+                    var lon = ids.length;
+
+                    window.location.href = 'delete_multiple/'+ids;
+
+                });
+
+
+            // PARA LLAMAR A EL DIALOG DE INSERTAR
+
+            $('#btn-add').click(function(evt){
+               $('#dialogAdd').data('dialog').open();
+            });
+        });
+
+function pressFuntion(id){
+    $('#dialogDelete').data('dialog').open();
+}
+
+
+
+    </script>
+{% endblock %}
+
+
+

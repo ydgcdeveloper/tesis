@@ -1,0 +1,134 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EstExt
+ *
+ * @ORM\Table(name="est_ext", indexes={@ORM\Index(name="tipo_est_id", columns={"tipo_est_id"}), @ORM\Index(name="fki_pais_id", columns={"pais_id"}), @ORM\Index(name="fki_carrera_id", columns={"carrera_id"})})
+ * @ORM\Entity
+ */
+class EstExt
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="est_ext_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ces", type="string", length=255, nullable=false)
+     */
+    private $ces;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=255, nullable=true)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="apell1", type="string", length=255, nullable=true)
+     */
+    private $apell1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="apell2", type="string", length=255, nullable=true)
+     */
+    private $apell2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sexo", type="string", length=255, nullable=true)
+     */
+    private $sexo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="bajas", type="string", length=20, nullable=true)
+     */
+    private $bajas;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="licencias", type="string", length=20, nullable=true)
+     */
+    private $licencias;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="altas", type="string", length=20, nullable=true)
+     */
+    private $altas;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codigo_carrera", type="string", length=10, nullable=true)
+     */
+    private $codigoCarrera;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="anno_estudio", type="string", length=1, nullable=true)
+     */
+    private $annoEstudio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observaciones", type="string", nullable=true)
+     */
+    private $observaciones;
+
+    /**
+     * @var \TipoEst
+     *
+     * @ORM\ManyToOne(targetEntity="TipoEst")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="tipo_est_id", referencedColumnName="id")
+     * })
+     */
+    private $tipoEst;
+
+    /**
+     * @var \Pais
+     *
+     * @ORM\ManyToOne(targetEntity="Pais")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="pais_id", referencedColumnName="id")
+     * })
+     */
+    private $pais;
+
+    /**
+     * @var \Carrera
+     *
+     * @ORM\ManyToOne(targetEntity="Carrera")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="carrera_id", referencedColumnName="id")
+     * })
+     */
+    private $carrera;
+
+
+}
+

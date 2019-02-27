@@ -1,0 +1,96 @@
+{% include 'AppBundle::main.html.twig' %}
+
+{% include 'AppBundle:estudiantes extranjeros:script.html.twig' %}
+
+{% include 'AppBundle:estudiantes extranjeros:dialog.html.twig' %}
+{# AQUI VA EL DIALOG ADD#}
+ {{ form_widget(form_est_ext.ces, {'attr': {'class':'form-control'} }) }}
+
+
+
+{#
+{% block container %}
+    <div class="container">
+        <h4>Nuevo Extranjero</h4>
+
+        <div class="" align="center">
+
+        <form class="form" data-role="validator" action="" method="POST">
+            <div class="input-control center">
+            <div class="form-group">
+                {{ form_label(form_est_ext.ces, 'Cede:') }}
+                {{ form_widget(form_est_ext.ces, {'attr': {'class':'form-control'} }) }}
+            </div>
+            <div class="form">
+                {{ form_label(form_est_ext.pais, 'País:') }}
+                {{ form_widget(form_est_ext.pais, {"attr":{'class':'form-control'} }) }}
+            </div>
+
+            <div class="form">
+                {{ form_label(form_est_ext.nombre, 'Nombre:') }}
+                {{ form_widget(form_est_ext.nombre, {"attr":{'class':'form-control'} })  }}
+            </div>
+
+            <div class="form">
+                {{ form_label(form_est_ext.apell1, '1er Apellido:') }}
+                {{ form_widget(form_est_ext.apell1, {"attr":{'class':'form-control'} }) }}
+            </div>
+
+            <div class="form">
+                {{ form_label(form_est_ext.apell2, '2da Apellido :') }}
+                {{ form_widget(form_est_ext.apell2, {"attr":{'class':'form-control'} }) }}
+            </div>
+            <div class="form">
+
+                {{ form_label(form_est_ext.sexo, 'Sexo:') }}
+
+                {{ form_widget(form_est_ext.sexo) }}
+
+
+
+
+
+            </div>
+            <div class="form">
+                {{ form_label(form_est_ext.tipoEst, 'Tipo de estudiante:') }}
+                {{ form_widget(form_est_ext.tipoEst, {"attr":{'class':'form-control'} }) }}
+            </div>
+            <div class="form">
+                {{ form_label(form_est_ext.bajas, 'Bajas:') }}
+                {{ form_widget(form_est_ext.bajas, {"attr":{'class':'form-control'} }) }}
+            </div>
+            <div class="form">
+                {{ form_label(form_est_ext.licencias, 'Licencias:') }}
+                {{ form_widget(form_est_ext.licencias, {"attr":{'class':'form-control'} }) }}
+            </div>
+            <div class="form">
+                {{ form_label(form_est_ext.altas, 'Altas:') }}
+                {{ form_widget(form_est_ext.altas, {"attr":{'class':'form-control'} }) }}
+            </div>
+            <div class="form">
+                {{ form_label(form_est_ext.codigoCarrera, 'Código de carrera:') }}
+                {{ form_widget(form_est_ext.codigoCarrera, {"attr":{'class':'form-control'} }) }}
+            </div>
+            <div class="formp">
+                {{ form_label(form_est_ext.carrera, 'Carrera:') }}
+                {{ form_widget(form_est_ext.carrera, {"attr":{'class':'form-control'} }) }}
+            </div>
+            <div class="form">
+                {{ form_label(form_est_ext.annoEstudio, 'Año de estudio:') }}
+                {{ form_widget(form_est_ext.annoEstudio, {"attr":{'class':'form-control'} }) }}
+            </div>
+            <div class="form">
+                {{ form_label(form_est_ext.observaciones, 'Observaciones:') }}
+                {{ form_widget(form_est_ext.observaciones, {"attr":{'class':'form-control'} }) }}
+            </div>
+                <input type="submit" class="success" value="Guardar"/>
+
+            </div>
+            {{ form_rest(form_est_ext) }}
+        </form>
+    </div>
+
+    </div>
+    {% endblock %}
+#}
+

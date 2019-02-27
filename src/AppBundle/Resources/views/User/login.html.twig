@@ -1,0 +1,47 @@
+{% include 'default/index.html.twig' %}
+
+{% block nuevo %}
+<div class="container">
+    {#
+    {% if app.user != null %}
+        {{ dump(app.user) }}
+    {% endif %}
+
+
+    {% if is_granted('ROLE_ADMIN') %}
+    <strong>Estas logeado como Super Usuario. Felicidades!!</strong>
+    {% endif %}
+#}
+    <div class="col-lg-6">
+    <h2>A que perfil quieres entrar?</h2>
+        {#
+        <form action="{{ path('login_check') }}" method="post">
+            <label>Email:</label>
+            <input type="email" id="username" name="_username" value="" class="form-control"/>
+            <br/>
+            {#
+            <label>Contraseña:</label>
+            <input type="password" id="password" name="" class="form-control"/>
+            <br/>
+            #}
+           {#
+                       <input type="submit" value="Entrar" class="btn-success"/>
+
+                       <input type="hidden" name="_target_path" value="/perfil"/>
+
+
+        </form>
+        #}
+
+        <a style="background-color: #00cc00" class="button" href={{ path('admin', {"id":1} ) }}><span>Neisi</span></a>
+        <br/>
+        <a style="background: #2fb102" class="button" href={{ path('admin', {"id":2} ) }}><span>Yanara</span></a>
+<br/>
+        {% if mej_enviado != null %}
+            <h5 style="color: #00cc00" id="noti_mensaje">Se ha enviado un mensaje a {{ mej_enviado.destinatario }}</h5>
+            {% endif %}
+    </div>
+
+</div>
+{% endblock %}
+

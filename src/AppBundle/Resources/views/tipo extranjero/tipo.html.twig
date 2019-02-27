@@ -1,0 +1,57 @@
+{% include 'AppBundle::main.html.twig' %}
+{% block nuevo %}
+<div class="container">
+    <h1>Tipo de estudiante</h1>
+
+    <hr/>
+    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+       <Button><a href={{ path('nuevo_tipo_extranjero') }}> <span class="mif-user-plus mif-2x" style="color: #0b4059"></span></a></Button>
+       <Button><span class="mif-bin mif-2x" style="color: red"> </span></Button>
+
+        <div id="DataTables_Table_0_filter" class="dataTables_filter">
+            <label>
+                <span class="mif-search mif-2x" style="color: #0b4059"></span>
+
+                <input type="search" class="" placeholder="" aria-controls="DataTables_Table_0">
+            </label>
+        </div>
+    </div>
+    <table id="DataTables_Table_0" class="dataTable border bordered no-footer" data-role="datable" data-auto-width="false" role="grid" aria-describedby="DataTables_Table_0_info">
+       <thead >
+        <tr role="row">
+            <th style="width: 12.5%">
+                <label class="input-control checkbox">
+                    <input type="checkbox" checked>
+                    <span class="check"></span>
+                    <span class="caption">Todos</span>
+                </label>
+            </th>
+
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th style="width: 7%">Modificar</th>
+            <th style="width: 7%">Eliminar</th>
+        </tr>
+       </thead>
+        <tbody>
+        {% for tipo in tipos %}
+
+            <tr class="odd" role="row">
+                <td class="sorting_1" style="width: 12.5%">
+                    <label class="input-control checkbox small-check no-margin"><input type="checkbox">
+                    <span class="check"></span>
+                    </label>
+                </td>
+
+                <td class="">{{ tipo.nombre }}</td>
+                <td>{{ tipo.descripcion }}</td>
+                <td style="width: 7%"><a href={{ path('modificar_tipo_extranjero', {"id":tipo.id}) }}><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+                <td style="width: 7%"><a href={{ path('eliminar_tipo_extranjero', {"id":tipo.id}) }}><span class="mif-bin mif-2x" style="color: red"> </span></a></td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+<hr/>
+{% endblock %}

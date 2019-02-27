@@ -1,0 +1,28 @@
+{# MODAL DE ENVIAR MENSAJE#}
+<div data-role="dialog" id="envia" class="caja-dialog padding20" data-close-button="true" data-width="25%">
+    <div class="container">
+        <h3 align="center">Error</h3>
+        <span class="mif-error"></span>
+        <p>Algunos estudiantes tienen asignado este TIPO. Asígnale otro antes de eliminar este. </p>
+        <div class="">
+        <a href="{{ path('tipos_extranjero') }}"><Button>Aceptar</Button></a>
+
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    #envia{
+        background: #a92220;
+        color: white;
+    }
+</style>
+<script>
+
+    function showDialogSend(id){
+        var envia = $(id).data('envia');
+        envia.open();
+    }
+
+</script>
+
+                         

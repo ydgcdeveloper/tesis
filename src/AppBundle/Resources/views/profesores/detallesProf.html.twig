@@ -1,0 +1,82 @@
+{% include 'default/index.html.twig' %}
+
+{% set name_profe = prof.nombre %}
+{% set apell_profe = prof.apell %}
+
+
+{% block container %}
+    <div class="container">
+        <h4>Detalles de {{ name_profe }} {{ apell_profe }}</h4>
+        <hr/>
+
+        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+
+            <div id="DataTables_Table_0_filter" class="dataTables_filter">
+
+            </div>
+        </div>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>Id</th>
+                <td>{{ prof.id }}</td>
+                <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ prof.nombre }}</td>
+                <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+            </tr>
+            <tr>
+                <th>Apellido</th>
+                <td>{{ prof.apell }}</td>
+                <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+            </tr>
+            <tr>
+                <th>Facultad</th>
+                <td>{{ prof.fac }}</td>
+                <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+            </tr>
+            <tr>
+                <th>Departamento</th>
+                <td>{{ prof.depar }}</td>
+                <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+            </tr>
+            <tr>
+                <th>Centro de estudio</th>
+                <td>{{ prof.cenEstu }}</td>
+                <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+            </tr>
+            <tr>
+                <th>Categoría Docente</th>
+                <td>{{ prof.categDocent }}</td>
+                <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+            </tr>
+            <tr>
+                <th>Grado Académico</th>
+                <td>{{ prof.gradoAcad }}</td>
+                <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+            </tr>
+            <tr>
+                <th>Grado científico</th>
+                <td>{{ prof.gradoCient }}</td>
+                <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+            </tr>
+            <tr>
+                <th>Cuadro</th>
+                <td>{{ prof.cuadro }}</td>
+                <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+            </tr>
+            <tr>
+                <th>Cargo</th>
+                <td>{{ prof.cargo }}</td>
+                <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+            </tr>
+            <tr>
+                <th>Correo</th>
+                <td>{{ prof.correo }}</td>
+                <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+            </tr>
+
+        </table>
+    </div>
+{% endblock %}

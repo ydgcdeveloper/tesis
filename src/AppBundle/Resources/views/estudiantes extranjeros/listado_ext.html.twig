@@ -1,0 +1,66 @@
+
+{% include 'AppBundle::main.html.twig' %}
+{% include 'AppBundle:estudiantes extranjeros:script.html.twig' %}
+{% include 'AppBundle:estudiantes extranjeros:dialogAdd.html.twig' %}
+{% include 'AppBundle:estudiantes extranjeros:dialog.html.twig' %}
+
+<link type="text/css" href="{{ asset('/bundles/app/estilos.css') }}" />
+
+{% block content %}
+    <div class="container">
+        <h4>Estudiantes extranjeros</h4>
+        <hr/>
+        <div id="btns-top">
+            {#href={{ path('nuevo_extranjero') }}#}
+            <Button id="btn-add"><a> <span class="mif-user-plus mif-2x" style="color: #0b4059"></span></a></Button>
+            <Button id='delete-all' class="button"><span class='mif-bin mif-2x' style='color: red'> </span></Button>
+            {# RUTA ANTERIOR NO VALIDA AUN         <Button><a href="#"> <span class="mif-printer mif-2x" style="color: #0b4059"></span></a></Button>
+         #}
+        </div>
+        <table class="table striped hovered cell-hovered border bordered" id="miTablaExt">
+            <thead>
+            <tr role="row">
+                <th>
+                    <label class="input-control checkbox">
+                        <input type="checkbox">
+                        <span class="check" id="checkbox_principal"></span>
+                    </label>
+                </th>
+                <th>Sede</th>
+                <th>No.</th>
+                <th>País</th>
+                <th>Nombre</th>
+                <th>1er Apellido</th>
+                <th>2do Apellido</th>
+                <th style="width: 5%">Ver</th>
+                <th style="width: 7%">Editar</th>
+                <th style="width: 7%">Eliminar</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for ext in exts %}
+                <tr class="odd" role="row">
+                    <td>
+                        <label class="input-control checkbox small-check no-margin"><input type="checkbox" class="checkbox" value="{{ ext.id }}" onclick="addIds({{ ext.id }})">
+                            <span class="check"></span>
+                        </label>
+                    </td>
+                    <td class="">{{ ext.ces }}</td>
+                    <td class="">{{ ext.id }}</td>
+                    <td class=""><img width="35" src="{{ asset("uploads/"~ext.pais.icon) }}" alt=""> {{ ext.pais.nombre }}</td>
+                    <td class="">{{ ext.nombre }}</td>
+                    <td>{{ ext.apell1 }}</td>
+                    <td>{{ ext.apell2 }}</td>
+                    <td style="width: 5%"><a href={{ path('detalles_extranjero', {"id":ext.id})}}><span class="mif-eye mif-2x" style="color: #0b4059"> </span></a></td>
+                    <td style="width: 7%"><a href={{ path('modificar_extranjero', {"id":ext.id})}}><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+                    <td style="width: 7%">
+                        <button onclick="pressFuntion({{ ext.id }})"><a id="btn-delete" type="button"><span class="mif-bin mif-2x" style="color: red"></span>
+                            </a></button>
+                    </td>
+                </tr>
+
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% include 'default/index.html.twig' %}
+
+{% block container %}
+    <div class="container">
+        <h4>Modificar Profesor</h4>
+        {% if (status != null) %}
+            <h5>{{ status }}</h5>
+        {% endif %}
+        {{ form_start(form_profe, {'action':'', 'method':'POST'}) }}
+        {{ form_end(form_profe) }}
+    </div>
+{% endblock %}

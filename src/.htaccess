@@ -1,0 +1,22 @@
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+</IfModule>
+
+FileETag None
+
+#CONTENIDO DELICADO***ESTADO->PRODUCCION
+#UN YEAR
+#<FilesMatch "\.(css|js|txt|min|png|ico|php|twig|html)$">
+#Header set Cache-Control "max-age=29030400, public"
+#</FilesMatch>
+
+#UN MES
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|swf|js|xml|css|html|php|twig)$">
+Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
+
+#must-revalidate

@@ -1,0 +1,39 @@
+{% include 'default/index.html.twig' %}
+{# Este es el perfil del Usuario 1 #}
+{% block nuevo %}
+    <div class="container">
+        <h2>Perfil de {{ user.name }}</h2>
+
+        <br/>
+        <div class="row">
+            <li>
+                <a href="">{{ user.name }}</a>
+                <a href="">{{ user.role }}</a>
+                <a href="">{{ user.email }}</a>
+                {# Debemmos pasarle los datos de la tabla menssajes a esta vista
+                para luego recorrer los mensajes de este. Si menssajes.destinatario = NombreUsuario entonces imprime messajes.mej
+                #}
+              {#  <a>{{ user.messajes }}</a>  #}
+
+                <a id="mensajes" href={{ path('mensajes', {"id":user.id}) }}>Mensajes</a>
+                {% if status == "1" and id == 2 %}
+                    <style type="text/css">
+                        #mensajes{
+                            color: red;
+                            font-weight: bold;
+                        }
+                    </style>
+                    {% endif %}
+
+                <a href=""></a>
+                <a href={{ path('send_messaje', {"id":user.id}) }}>Enviar un mensaje</a>
+
+            </li>
+        </div>
+        <div class="form-control">
+            {#
+            {% include 'AppBundle:User:send_mej.html.twig' %}
+            #}
+        </div>
+    </div>
+{% endblock %}

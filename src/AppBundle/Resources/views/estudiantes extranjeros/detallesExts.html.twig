@@ -1,0 +1,98 @@
+{% include 'AppBundle::main.html.twig' %}
+
+{% set name_extranjero = ext.nombre %}
+{% set apell1_extranjero = ext.apell1 %}
+{% set apell2_extranjero = ext.apell2 %}
+
+
+{% block container %}
+    <div class="container">
+      <h4>Detalles de {{ name_extranjero }} {{ apell1_extranjero }} {{ apell2_extranjero }}</h4>
+        <hr/>
+
+        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+
+            <div id="DataTables_Table_0_filter" class="dataTables_filter">
+
+            </div>
+        </div>
+        <table class="table table-bordered table-hover">
+
+                <tr>
+                    <th>Sede</th>
+                    <td>{{ ext.ces }}</td>
+                    <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+                </tr>
+                <tr>
+                    <th>No.</th>
+                    <td>{{ ext.id }}</td>
+                    <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+                </tr>
+                <tr>
+                    <th>País</th>
+                    <td><img width="35" src="{{ asset("uploads/"~ext.pais.icon) }}" alt=""> {{ ext.pais.nombre }}</td>
+                    <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+                </tr>
+                <tr>
+                   <th>Nombre</th>
+                   <td>{{ ext.nombre }}</td>
+                    <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+                </tr>
+                <tr>
+                   <th>1er Apellido</th>
+                   <td>{{ ext.apell1 }}</td>
+                    <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+                </tr>
+                <tr>
+                   <th>2do Apellido</th>
+                   <td>{{ ext.apell2 }}</td>
+                    <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+                </tr>
+                <tr>
+                   <th>Sexo</th>
+                   <td>{{ ext.sexo }}</td>
+                    <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+                </tr>
+                <tr>
+                   <th>Tipo de Estudiante</th>
+                   <td>{{ ext.tipoEst }}</td>
+                    <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+                </tr>
+                <tr>
+                   <th>Bajas</th>
+                   <td>{{ ext.bajas }}</td>
+                    <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+                </tr>
+                <tr>
+                   <th>Licencias</th>
+                   <td>{{ ext.licencias }}</td>
+                    <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+                </tr>
+                <tr>
+                   <th>Altas</th>
+                   <td>{{ ext.altas }}</td>
+                    <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+                </tr>
+                <tr>
+                   <th>Código de Carrara</th>
+                   <td>{{ ext.codigoCarrera }}</td>
+                    <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+                </tr>
+                <tr>
+                   <th>Carrera</th>
+                   <td>{{ ext.carrera }}</td>
+                    <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+                </tr>
+                <tr>
+                   <th>Año de estudio</th>
+                   <td>{{ ext.annoEstudio }}</td>
+                    <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+                </tr>
+                <tr>
+                   <th>Observaciones</th>
+                   <td>{{ ext.observaciones }}</td>
+                    <td style="width: 7%"><a href="#"><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+                </tr>
+        </table>
+    </div>
+{% endblock %}

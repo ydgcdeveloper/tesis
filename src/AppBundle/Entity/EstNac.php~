@@ -1,0 +1,97 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EstNac
+ *
+ * @ORM\Table(name="est_nac")
+ * @ORM\Entity
+ */
+class EstNac
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="est_nac_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=255, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="apell", type="string", length=255, nullable=false)
+     */
+    private $apell;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fac", type="string", length=255, nullable=false)
+     */
+    private $fac;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="depart", type="string", length=255, nullable=false)
+     */
+    private $depart;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cen_est", type="string", length=255, nullable=false)
+     */
+    private $cenEst;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="categ_docente", type="string", length=255, nullable=false)
+     */
+    private $categDocente;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="grado_acad", type="string", length=255, nullable=false)
+     */
+    private $gradoAcad;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="grado_cient", type="string", length=255, nullable=false)
+     */
+    private $gradoCient;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cargo", type="string", length=255, nullable=true)
+     */
+    private $cargo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="correo", type="string", length=255, nullable=false)
+     */
+    private $correo;
+
+
+}
+

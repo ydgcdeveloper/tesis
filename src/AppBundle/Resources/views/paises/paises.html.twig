@@ -1,0 +1,38 @@
+{% include 'AppBundle::main.html.twig' %}
+
+{% block nuevo %}
+    <div class="container">
+        <h1>Países</h1>
+        <hr/>
+        </div>
+        <table class="table striped hovered cell-hovered border bordered" id="miTabla">
+            <thead >
+            <tr role="row">
+                <th>Bandera</th>
+                <th>País</th>
+                <th style="width: 7%">Ver</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for pais in paises %}
+               <td class=""><img width="45" src="{{ asset("uploads/"~pais.icon) }}" alt=""></td>
+                    <td>{{ pais.nombre }}</td>
+                    <td style="width: 7%"><a href={{ path('modificar_tipo_extranjero', {"id":pais.id}) }}><span class="mif-eye mif-2x" style="color: #000064"> </span></a></td>
+                     </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
+
+<script>
+    $(document).ready(function() {
+       // var tabla = $('#miTabla');
+       // $('#miTabla').DataTable( { "language": { "search": "Buscar:" } } );
+       $('#miTabla').DataTable( { "paging": false, "ordering": false, "info": false, "searching" : true, "language": { "search": "Buscar:" } } );
+      //  $('#miTabla').DataTable();
+    } );
+
+</script>

@@ -1,0 +1,104 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Profes
+ *
+ * @ORM\Table(name="profes")
+ * @ORM\Entity
+ */
+class Profes
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="profes_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=255, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="apell", type="string", length=255, nullable=false)
+     */
+    private $apell;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fac", type="string", length=255, nullable=false)
+     */
+    private $fac;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="depar", type="string", length=255, nullable=false)
+     */
+    private $depar;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cen_estu", type="string", length=255, nullable=false)
+     */
+    private $cenEstu;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="categ_docent", type="string", length=255, nullable=false)
+     */
+    private $categDocent;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="grado_acad", type="string", length=255, nullable=false)
+     */
+    private $gradoAcad;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="grado_cient", type="string", length=255, nullable=false)
+     */
+    private $gradoCient;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="cuadro", type="boolean", nullable=false)
+     */
+    private $cuadro;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cargo", type="string", length=255, nullable=false)
+     */
+    private $cargo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="correo", type="string", length=255, nullable=false)
+     */
+    private $correo;
+
+
+}
+

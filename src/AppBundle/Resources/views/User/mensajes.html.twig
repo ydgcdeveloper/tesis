@@ -1,0 +1,169 @@
+{% include 'AppBundle::main.html.twig' %}
+
+{% block nuevo %}
+    {% set id = 0 %}
+    {# variable que representa true, mensaje nuevo o false, sin nuevos mensajes #}
+   {% set state = false %}
+
+    {% set count = -1 %}
+    {% set count_previus = 0 %}
+    {% for m in menj %}
+        {% if m.destinatario == user.name %}
+            {% set count = count+1 %}
+            {% set temp = count %}
+            {% endif %}
+        {% endfor %}
+
+    <h2 style="color: #0b4059;">Mensajes de {{ user.name }}. Tienes {{ count }} mensajes</h2>
+    <div class="">
+        <a id="enviar" onclick="showDialogSend('#envia')"><span class="mif-paper-plane mif-2x"></span></a>
+            <table class="">
+                <tr>
+                    <th style="text-align: center">
+                        {# EL CHEXBOX PRINCIPAL#}
+                        <label class="input-control checkbox">
+                            <input type="checkbox" id="check-all"/>
+                            <span class="check"></span>
+                            <span class="caption"></span>
+                        </label>
+                    </th>
+                    <th><span class="mif-mail mif-2x" style="color: #0b4059"></span></th>{#ani-shake para animar#}
+                    <th id="th" style="text-align: right"></th>
+                </tr>
+  {% for mj in menj if mj.id != 1 and mj.id != 2 %}
+      {% if mj.destinatario == user.name %}
+          {% set id = mj.id %}
+                    {# LOS CHEXBOXS #}
+                      <tr class="" style="background: #50c929">
+                      <td style="width: 12.5%" align="center" class="caja-izq">
+                          <label class=""><input type="checkbox"/>
+                              <span class=""></span>
+                          </label>
+                      </td>
+
+            <td>
+                {# EL MENSAJE QUE SE MUESTRA  href="{{ path('eliminar_mensaje', {"id":id, "idd":user.id}) }}"#}
+          <h5 id="show_mej" style="color: #0b4059">{{ mj.menj }}</h5>
+
+            </td>
+                          {#...............................................................................#}
+                          {# ESTO ES UN MODAL ELIMINAR#}
+                          <div data-role="dialog" id="dialog" class="caja-dialog padding20" data-close-button="true" data-width="25%">
+                              <div class="container">
+                                  <h3 align="center">Alerta</h3>
+                                  <p>Estas seguro de eliminar este mensaje</p>
+                                  <div class="">
+                                      <input type="button" href="" id="cancel" align="left" class="" value="Cancelar"/>
+                                      <a href="{{ path('eliminar_mensaje', {"id":id, "idd":user.id}) }}"><input type="submit"  id="eliminar" align="right" class="btn-danger" value="Eliminar"/></a>
+                                  </div>
+                              </div>
+                          </div>
+
+                          {#.................................................#}
+
+                          {#.....................................................................#}
+                          {# LOS BOTONES DE ELIMINAR #}
+                          <div style="background: black">
+                          <td align="right" class="caja-der">
+                      <a id="del" onclick="showDialog('#dialog')">
+                          <span id="{{ id }}" class="mif-bin mif-2x" style="color: red"></span></a>
+                          </td>
+                          </div>
+            </tr>
+
+          <tr style="background: white">
+              <td><h5 style="color: white">espacio en blanco</h5></td>
+          </tr>
+      {% endif %}
+
+  {% endfor %}
+
+            </table>
+    </div>
+    <style type="text/css">
+        .caja-mensaje{
+            -moz-border-radius: 20px;
+            -webkit-border-radius: 20px;
+            border-radius: 20px;
+
+        {#
+ -webkit-border-radius: 20px;
+ border-radius: 20px;#}
+        }
+        .caja-izq{
+        {#border: 2px solid darkblue;#}
+            border: 2px darkblue;
+            border-top-left-radius: 10px;
+            -moz-border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            -moz-border-bottom-left-radius: 10px;
+
+        }
+        .caja-der{
+            border: 2px darkblue;
+            border-top-right-radius: 10px;
+            -moz-border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            -moz-border-bottom-right-radius: 10px;
+
+        }
+        .cajaLoka{
+            background: black;
+            color: white;
+        }
+        #enviar{
+            color: #000042;
+        }
+    </style>
+
+    <script>
+        function showDialog(id){
+            var dialog = $(id).data('dialog');
+            dialog.open();
+        }
+
+        function showDialogSend(id){
+            var envia = $(id).data('envia');
+            envia.open();
+        }
+
+    </script>
+        <script>// EL SIGUIENTE CODIGO ME COSTO 8 HORAS DE INTENSO TRABAJO, PRUEBAS Y ESTUDIO, POR FAVOR TRATARLO CON RESPETO:
+
+            $(document).ready(function(){
+               $("input#check-all").click(function(evt){// CAPTURO EL EVENTO CLICK DEL INPUT
+                   var seleccion = $("#th");// OBTENGO EL ACCESO AL ELEMENTO TH DE LA TABLA
+                   if(seleccion.html().length == 0){// SI EL ELEMENTO ESTA VACIO
+                        seleccion.html("<a><span class='mif-bin mif-2x' style='color: red'></span></a>");// LE PASAMOS ESE STRING
+                       // QUE SERA
+                       // TRADUCIDO LUEGO A CODIGO HTML. QUE GENIALIDAD. ESTO LO HE APRENDIDO EN EL VIDEO TUTORIAL CODIGOFACILITO.
+                   }else{// SI EL ELEMENTO TIENE OTRO SIZE PUES DEJAMENLO VACIO, ASI QUITA EL BOTON DE ELIMINAR.
+                        seleccion.html("");
+                   }
+               });
+            });
+        </script>
+
+{% endblock %}
+
+{% block modal %}
+
+    <style type="text/css">
+
+
+    </style>
+
+    <script>
+        $(document).ready(function(){
+            // PARA EL BOTON DE CANCELAR
+            $("input#cancel").click(function(evt){
+                $("#dialog").data('dialog').close();
+            });
+            // PARA EL DE ELIMINAR
+            $("input#eliminar").click(function(evt){
+                $("#dialog").data('dialog').close();
+            });
+        });
+    </script>
+
+{% endblock %}

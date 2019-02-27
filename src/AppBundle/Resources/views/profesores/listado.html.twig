@@ -1,0 +1,65 @@
+{% include 'AppBundle::main.html.twig' %}
+
+{% block content %}
+    <div class="container">
+    <h4>Profesores</h4>
+    <hr/>
+    <div>
+        <Button> <a href={{ path('nuevo') }}><span class="mif-user-plus mif-2x" style="color: #0b4059"></span></a></Button>
+        <Button><span class="mif-bin mif-2x" style="color: red"> </span></Button>
+
+        <div>
+            <label>
+               <Button id="btn_buscar"> <span class="mif-search mif-2x" style="color: #0b4059"></span></Button>
+
+                <input type="search" id="miBusqueda" class="bd-search-results select2-search__field" name="q">
+            </label>
+        </div>
+    </div>
+    <table class="table table-hover table-bordered dataTable" id="miTabla" data-role="datatable">
+        <tr>
+          <th style="width: 12.5%">
+            <label class="input-control checkbox">
+                <input type="checkbox" checked>
+                <span class="check"></span>
+                <span class="caption">Todos</span>
+            </label>
+          </th>
+            <th class="sortable-column">Nombre</th>
+            <th class="sortable-column">Apellidos</th>
+            <th style="width: 5%">Ver</th>
+            <th style="width: 7%">Editar</th>
+            <th style="width: 7%">Eliminar</th>
+        </tr>
+        {% for prof in profs %}
+            <tr>
+                <td style="width: 12.5%">
+                    <label class="input-control checkbox small-check no-margin"><input type="checkbox">
+                        <span class="check"></span>
+                    </label>
+                </td>
+                <td>{{ prof.nombre }}</td>
+                <td>{{ prof.apell }}</td>
+                <td style="width: 5%"><a href={{ path('detalles', {"id":prof.id})}}><span class="mif-eye mif-2x" style="color: #0b4059"> </span></a></td>
+                <td style="width: 7%"><a href={{ path('editar', {"id":prof.id})}}><span class="mif-pencil mif-2x" style="color: #00cc00"> </span></a></td>
+                <td style="width: 7%"><a href={{ path('eliminar', {"id":prof.id})}}><span class="mif-bin mif-2x" style="color: red"> </span></a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+{% endblock %}
+{% block javascript %}
+    <script type="text/javascript">
+        $(jquery).ready(function(){
+            $("#btn_buscar").onclick(function(){
+               alert("buscas algo?") ;
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block estiloTabla %}
+    <style type="text/css">
+
+    </style>
+{% endblock %}

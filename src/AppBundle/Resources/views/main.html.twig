@@ -1,0 +1,37 @@
+{% include 'default/index.html.twig' %}
+{% set id_user = 1 %}
+
+{% block options %}
+    <div class="app-bar" style="background: midnightblue">
+        <ul class="app-bar-menu">
+            <li><a href="{{ path('listado_profesores') }}">Profesores</a></li>
+            <li>
+                <a href="" class="dropdown-toggle">Estudiantes</a>
+                <ul class="d-menu" data-role="dropdown">
+                    <li><a href="{{ path('come_pinga') }}">Extranjeros</a></li>
+                    <li><a href="{{ path('listar_nacionales') }}">Nacionales</a></li>
+                    <li><a href="{{ path('tipos_extranjero') }}">Tipo de extranjero</a></li>
+
+                </ul>
+            </li>
+            <li><a>Reportes</a></li>
+            <li><a href="{{ path('expedientes') }}">Expedientes</a></li>
+            <li><a href="{{ path('visas') }}">Pasaportes</a></li>
+            <a class="nav-link" href={{ path('mensajes', {"id":id_user}) }} id="opns"><span class="mif-envelop mif-2x"></span></a>
+            <li><a href="{{ path('listado_paises') }}">Países</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+<style type="text/css">
+    #nav{
+        color: white;
+    }
+    #dropmenu{
+        background: #00003a;
+        color: cornflowerblue;
+    }
+    #opns{
+        color: white;
+    }
+</style>
