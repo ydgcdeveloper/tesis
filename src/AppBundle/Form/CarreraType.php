@@ -18,7 +18,7 @@ class CarreraType extends AbstractType
             ->add('nombre')
         ;
     }
-//    todo example
+//    TODO: example
     
     /**
      * @param OptionsResolver $resolver

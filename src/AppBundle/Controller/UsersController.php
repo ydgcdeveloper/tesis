@@ -46,7 +46,7 @@ class UsersController extends Controller
      */
     public function perfilAction($status, $id)
 {
-    // DATOS DE TABLA USUARIOS
+    // DATOS DE TABLA USUARIOS hay que ver
     $em = $this->getDoctrine()->getEntityManager();
     $user_repo = $em->getRepository('AppBundle:Users');
     $user = $user_repo->find(1);
